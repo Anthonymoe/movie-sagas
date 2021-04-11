@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import './AddMovie.css'
 
 function AddMovie(){
     
@@ -59,10 +60,11 @@ function AddMovie(){
     return(
         <>
             <h1>Add a Movie</h1>
-            <input onChange={newTitle} type="text" placeholder="Title"/>
-            <input onChange={newImage} type="text" placeholder="Image URL"/>
-            <textarea onChange={newDescription} placeholder="Description...." name="description" id="desc" cols="30" rows="10"></textarea>
+            <input className="title" onChange={newTitle} type="text" placeholder="Title"/>
+            <input className="image" onChange={newImage} type="text" placeholder="Image URL"/>
+            <textarea className="description" onChange={newDescription} placeholder="Description...." name="description" id="desc" cols="30" rows="10"></textarea>
             <select onChange={newGenre} name="" id="">
+            <h3>Genre</h3>
             {genres.map(genre => {
                     return (
                         <option value={genre.id} key={genre.id}>{genre.name}</option>

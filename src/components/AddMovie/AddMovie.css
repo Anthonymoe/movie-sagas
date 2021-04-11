@@ -1,0 +1,23 @@
+.title {
+    display: block;
+    margin: auto;
+    font-size: large;
+    margin-bottom: 1em;
+    width: 50%;
+}
+
+.image {
+    display: block;
+    margin: auto;
+    font-size: large;
+    margin-bottom: 1em;
+    width: 50%;
+}
+
+.description {
+    display: block;
+    margin: auto;
+    font-size: large;
+    margin-bottom: 1em;
+    width: 50%;
+}

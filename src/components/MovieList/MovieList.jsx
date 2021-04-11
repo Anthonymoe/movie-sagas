@@ -29,14 +29,12 @@ function MovieList(props) {
         <main>
             <h1>Movie List</h1>
             <button onClick={routeAdd}>Add Movie</button>
-            <section className="movies">
+            <section className="movie-container">
                 {movies.map(movie => {
                     return (
                         <div onClick={()=>showDetails(movie)} key={movie.id} >
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} alt={movie.title}/>
-                            {/* testing how to make the selector for the details page */}
-                            {/* ^^<p>{movie.description}</p> */} 
                         </div>
                     );
                 })}
