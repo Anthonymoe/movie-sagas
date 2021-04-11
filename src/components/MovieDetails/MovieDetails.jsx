@@ -26,7 +26,7 @@ function MovieDetails(props){
     return (
         <>
             <div key={movie.id}>
-                <h1>Details</h1>
+                <h1>{props.details.title}</h1>
                 <p>{props.details.description}</p>
                 {details.map(genre => {
                     return (
