@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './MovieList.css'
 
-function MovieList() {
+function MovieList(props) {
 
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
@@ -13,8 +13,10 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    const showDetails = () => {
-        history.push('/details')
+    const showDetails = (movie) => {
+        props.setDetails({id: movie.id, description: movie.description, title: movie.title, poster: movie.poster})
+        history.push('/details/' + movie.id )
+        console.log('in showDetails:', movie );
     }
 
     return (
@@ -23,7 +25,7 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <div onClick={showDetails} key={movie.id} >
+                        <div onClick={()=>showDetails(movie)} key={movie.id} >
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} alt={movie.title}/>
                             {/* testing how to make the selector for the details page */}

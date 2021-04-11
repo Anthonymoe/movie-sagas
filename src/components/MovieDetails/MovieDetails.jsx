@@ -2,21 +2,37 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 
-function MovieDetails (){
+function MovieDetails(props){
     
     const movie = useSelector(store => store.movies);
-    let history = useHistory();
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const details = useSelector(store => store.details);
+
+
     
     //brings user back to movieslist page
     const returnHome = () => {
         history.push('/')
     }
+    
+    //sends action type to saga to get display the details
+    useEffect(() => {
+        dispatch({ type: 'FETCH_DETAILS', payload: props.details.id });
+    }, []);
+
+
 
     return (
         <>
             <div key={movie.id}>
-                <h1>{movie.title} Details</h1>
-                <p>{movie.description}</p>
+                <h1>Details</h1>
+                <p>{props.details.description}</p>
+                {details.map(genre => {
+                    return (
+                        <p>{genre.name}</p>
+                    )
+                    })}
                 <button onClick={returnHome}>Back to List</button>
             </div>
         </>
