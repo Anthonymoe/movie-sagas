@@ -64,7 +64,6 @@ function AddMovie(){
             <input className="image" onChange={newImage} type="text" placeholder="Image URL"/>
             <textarea className="description" onChange={newDescription} placeholder="Description...." name="description" id="desc" cols="30" rows="10"></textarea>
             <select onChange={newGenre} name="" id="">
-            <h3>Genre</h3>
             {genres.map(genre => {
                     return (
                         <option value={genre.id} key={genre.id}>{genre.name}</option>
