@@ -8,12 +8,14 @@ function MovieList(props) {
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
     let history =  useHistory();
-
+    
+    //gets all the movies from db on page load
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
-
+    //Changes value of details in app.js - details is then passed as a prop to the details component
     const showDetails = (movie) => {
+        //set details is passed as a prop form app.js so that we can capture data on the targeted click.
         props.setDetails({id: movie.id, description: movie.description, title: movie.title, poster: movie.poster})
         history.push('/details/' + movie.id )
         console.log('in showDetails:', movie );

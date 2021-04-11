@@ -22,7 +22,7 @@ function MovieDetails(props){
     }, []);
 
 
-
+    //renders all data to the DOM
     return (
         <>
             <div key={movie.id}>

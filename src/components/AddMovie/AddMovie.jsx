@@ -14,7 +14,7 @@ function AddMovie(){
     const[ description, setDescription ] = useState('');
     const[ genre, setGenre ] = useState('');
 
-    //gets Genres to use for the genre select
+    //gets Genres to use for the genre select-follow to index.js for more info.
     useEffect(() => {
         dispatch({ type: 'FETCH_GENRES' });
         console.log( 'genres', genres);
@@ -23,9 +23,9 @@ function AddMovie(){
     //object with all input data to be sent to the db
     let newMovie = {
         title: title, 
-        image: imageUrl, 
+        poster: imageUrl, 
         description: description, 
-        genre: genre 
+        genre_id: genre
     }
     
     //brings user back to homepage/MovieList
@@ -36,6 +36,8 @@ function AddMovie(){
     //adds movie to db and brings user back home 
     const saveMovie = () => {
         console.log( newMovie );
+        dispatch({ type: 'ADD_MOVIE', payload: newMovie })
+        history.push('/');
     }
     //handles value change of title
     const newTitle = (event) => {
@@ -63,7 +65,7 @@ function AddMovie(){
             <select onChange={newGenre} name="" id="">
             {genres.map(genre => {
                     return (
-                        <option key={genre.id}>{genre.name}</option>
+                        <option value={genre.id} key={genre.id}>{genre.name}</option>
                     )
                     })}
             </select>
