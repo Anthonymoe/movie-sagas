@@ -19,9 +19,14 @@ function MovieList(props) {
         console.log('in showDetails:', movie );
     }
 
+    const routeAdd = () => {
+        history.push( '/AddMovie')
+    }
+
     return (
         <main>
             <h1>Movie List</h1>
+            <button onClick={routeAdd}>Add Movie</button>
             <section className="movies">
                 {movies.map(movie => {
                     return (
