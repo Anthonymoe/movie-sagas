@@ -61,8 +61,11 @@ function AddMovie(){
             <input onChange={newImage} type="text" placeholder="Image URL"/>
             <textarea onChange={newDescription} placeholder="Description...." name="description" id="desc" cols="30" rows="10"></textarea>
             <select onChange={newGenre} name="" id="">
-                <option value="">genre</option>
-                <option value="">genre2</option>
+            {genres.map(genre => {
+                    return (
+                        <option key={genre.id}>{genre.name}</option>
+                    )
+                    })}
             </select>
             <button onClick={saveMovie}>Save</button>
             <button onClick={cancelHandle}>Cancel</button>
