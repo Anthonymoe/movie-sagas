@@ -4,7 +4,12 @@ function AddMovie(){
     const history = useHistory();
     
     //brings user back to homepage/MovieList
-    const returnHome = () => {
+    const cancelHandle = () => {
+        history.push('/')
+    }
+
+    //adds movie to db and brings user back home 
+    const saveMovie = () => {
         history.push('/')
     }
     
@@ -19,8 +24,8 @@ function AddMovie(){
                 <option value="1">1</option>
                 <option value="2">2</option>
             </select>
-            <button>Save</button>
-            <button onClick={returnHome}>Cancel</button>
+            <button onClick={saveMovie}>Save</button>
+            <button onClick={cancelHandle}>Cancel</button>
         </>
     )   
 }
